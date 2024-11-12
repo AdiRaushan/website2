@@ -1,0 +1,904 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+
+    <!--=============== CSS ===============-->
+    <link rel="stylesheet" href="/assets/css/styles.css" />
+  </head>
+  <body>
+    <header id="cs-navigation">
+      <div class="cs-container">
+        <!--Nav Logo-->
+        <!--Logo is turned white in the css with a filter on dark mode-->
+        <a href="" class="cs-logo" aria-label="back to home">
+          <img
+            src="/assets/img/logonew3.png"
+            alt="logo"
+            style="width: 150px; height: auto"
+            aria-hidden="true"
+            decoding="async"
+          />
+        </a>
+        <!--Navigation List-->
+        <nav class="cs-nav" role="navigation">
+          <!--Mobile Nav Toggle-->
+          <button class="cs-toggle" aria-label="mobile menu toggle">
+            <div class="cs-box" aria-hidden="true">
+              <span class="cs-line cs-line1" aria-hidden="true"></span>
+              <span class="cs-line cs-line2" aria-hidden="true"></span>
+              <span class="cs-line cs-line3" aria-hidden="true"></span>
+            </div>
+          </button>
+          <!-- We need a wrapper div so we can set a fixed height on the cs-ul in case the nav list gets too long from too many dropdowns being opened and needs to have an overflow scroll. This wrapper acts as the background so it can go the full height of the screen and not cut off any overflowing nav items while the cs-ul stops short of the bottom of the screen, which keeps all nav items in view no matter how mnay there are-->
+          <div class="cs-ul-wrapper">
+            <ul id="cs-expanded" class="cs-ul" aria-expanded="false">
+              <li class="cs-li">
+                <a href="/assets/pages/index.html" class="cs-li-link cs-active">
+                  Home
+                </a>
+              </li>
+              <li class="cs-li">
+                <a href="/assets/pages/about.html" class="cs-li-link">
+                  About
+                </a>
+              </li>
+              <!--Copy and paste this cs-dropdown list item and replace any .cs-li with this cs-dropdown group to make a new dropdown and it will work-->
+              <li class="cs-li cs-dropdown" tabindex="0">
+                <span class="cs-li-link">
+                  Products
+                  <img
+                    class="cs-drop-icon"
+                    src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Icons/down-gold.svg"
+                    alt="dropdown icon"
+                    width="15"
+                    height="15"
+                    decoding="async"
+                    aria-hidden="true"
+                  />
+                </span>
+                <ul class="cs-drop-ul">
+                  <li class="cs-drop-li">
+                    <a
+                      href="/assets/pages/product1.html"
+                      class="cs-li-link cs-drop-link"
+                      >IQMC-520</a
+                    >
+                  </li>
+                  <li class="cs-drop-li">
+                    <a href="./product2.html" class="cs-li-link cs-drop-link"
+                      >IQMC-412</a
+                    >
+                  </li>
+                  <li class="cs-drop-li">
+                    <a href="./product3.html" class="cs-li-link cs-drop-link"
+                      >IQMC-520XDR</a
+                    >
+                  </li>
+                </ul>
+              </li>
+              <li class="cs-li">
+                <a href="/assets/pages/services.html" class="cs-li-link">
+                  Services</a
+                >
+              </li>
+              <li class="cs-li">
+                <a href="/assets/pages/pricing.html" class="cs-li-link">
+                  Plans</a
+                >
+              </li>
+            </ul>
+          </div>
+        </nav>
+        <div class="cs-contact-group">
+          <a href="tel:+84 1985 33 999" class="cs-phone">
+            <img
+              class="cs-phone-icon"
+              src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Icons/phone-1a.svg"
+              alt="logo"
+              width="24"
+              height="24"
+              aria-hidden="true"
+              decoding="async"
+            />
+            +1234567890
+          </a>
+          <div class="cs-social">
+            <a href="" class="cs-social-link">
+              <img
+                class="cs-social-icon"
+                src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Images/Icons/facebook-1a.svg"
+                alt="logo"
+                width="12"
+                height="12"
+                aria-hidden="true"
+                decoding="async"
+              />
+            </a>
+            <a href="" class="cs-social-link">
+              <img
+                class="cs-social-icon"
+                src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Images/Icons/twitter-1a.svg"
+                alt="logo"
+                width="12"
+                height="12"
+                aria-hidden="true"
+                decoding="async"
+              />
+            </a>
+            <a href="" class="cs-social-link">
+              <img
+                class="cs-social-icon"
+                src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Images/Icons/instagram1a.svg"
+                alt="logo"
+                width="12"
+                height="12"
+                aria-hidden="true"
+                decoding="async"
+              />
+            </a>
+            <a href="" class="cs-social-link">
+              <img
+                class="cs-social-icon"
+                src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Images/Icons/youtube1a.svg"
+                alt="logo"
+                width="12"
+                height="12"
+                aria-hidden="true"
+                decoding="async"
+              />
+            </a>
+          </div>
+        </div>
+        <!--Dark Mode toggle, uncomment button code if you want to enable a dark mode toggle-->
+        <!-- <button id="dark-mode-toggle" aria-label="dark mode toggle">
+                  <svg class="cs-moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 480" style="enable-background:new 0 0 480 480" xml:space="preserve"><path d="M459.782 347.328c-4.288-5.28-11.488-7.232-17.824-4.96-17.76 6.368-37.024 9.632-57.312 9.632-97.056 0-176-78.976-176-176 0-58.4 28.832-112.768 77.12-145.472 5.472-3.712 8.096-10.4 6.624-16.832S285.638 2.4 279.078 1.44C271.59.352 264.134 0 256.646 0c-132.352 0-240 107.648-240 240s107.648 240 240 240c84 0 160.416-42.688 204.352-114.176 3.552-5.792 3.04-13.184-1.216-18.496z"/></svg>
+                  <img class="cs-sun" aria-hidden="true" src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Icons%2Fsun.svg" decoding="async" alt="moon" width="15" height="15">
+              </button> -->
+      </div>
+    </header>
+
+    <!-- pricing  -->
+    <!-- ============================================ -->
+    <!-- ============================================ -->
+    <!--                  Gallery                     -->
+    <!-- ============================================ -->
+
+    <section id="gallery-1716">
+      <div class="cs-container">
+        <div class="cs-content">
+          <span class="cs-topper">Plans</span>
+          <h2 class="cs-title">Explore Our Plans</h2>
+          <!--If you remove the cs-text, the rectangle shape will disappear.  If you need to remove it, transfer the :before and .cs-text:last-of-type styles to the cs-title on mobile and desktop-->
+          <p class="cs-text">
+            We provide the most affordable and fastest internet worldwide with
+            our cheap and reliable plans. Check them out today!
+          </p>
+          <a href="" class="cs-button-solid">Call Us</a>
+        </div>
+        <div class="cs-gallery">
+          <picture class="cs-picture">
+            <!--Mobile Image-->
+            <source
+              media="(max-width: 600px)"
+              src="/assets/img/pricing plannel.jpg"
+            />
+            <!--Tablet and above Image-->
+            <source
+              media="(min-width: 601px)"
+              src="/assets/img/pricing plannel.jpg"
+            />
+            <img
+              loading="lazy"
+              decoding="async"
+              src="/assets/img/pricing plannel.jpg"
+              alt="picture"
+              width="480"
+              height="549"
+            />
+          </picture>
+          <picture class="cs-picture">
+            <!--Mobile Image-->
+            <source
+              media="(max-width: 600px)"
+              src="/assets/img/pricing pannnel2.jpg"
+            />
+            <!--Tablet and above Image-->
+            <source
+              media="(min-width: 601px)"
+              src="/assets/img/pricing pannnel2.jpg"
+            />
+            <img
+              loading="lazy"
+              decoding="async"
+              src="/assets/img/pricing pannnel2.jpg"
+              alt="picture"
+              width="480"
+              height="549"
+            />
+          </picture>
+          <picture class="cs-picture">
+            <!--Mobile Image-->
+            <source
+              media="(max-width: 600px)"
+              src="/assets/img/pricingpannnel3.jpg"
+            />
+            <!--Tablet and above Image-->
+            <source
+              media="(min-width: 601px)"
+              src="/assets/img/pricingpannnel3.jpg"
+            />
+            <img
+              loading="lazy"
+              decoding="async"
+              src="/assets/img/pricingpannnel3.jpg"
+              alt="picture"
+              width="480"
+              height="549"
+            />
+          </picture>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================ -->
+    <section id="promotions-1567">
+      <div class="cs-container">
+        <ul class="cs-card-group">
+          <li class="cs-item">
+            <picture class="cs-background">
+              <!--Mobile Image-->
+              <source
+                media="(max-width: 600px)"
+                src="/assets/img/pexels-shvetsa-12662814.jpg"
+              />
+              <!--Tablet and above Image-->
+              <source
+                media="(min-width: 601px)"
+                src="/assets/img/pexels-shvetsa-12662814.jpg"
+              />
+              <img
+                loading="lazy"
+                decoding="async"
+                src="/assets/img/pexels-shvetsa-12662814.jpg"
+                alt="room"
+                width="630"
+                height="354"
+              />
+            </picture>
+            <div class="cs-content">
+              <span class="cs-tag">Fast Internet Plans</span>
+              <h2 class="cs-h2">For Home And Outside</h2>
+              <a href="" class="cs-button-solid">See Now</a>
+            </div>
+          </li>
+          <li class="cs-item">
+            <picture class="cs-background">
+              <!--Mobile Image-->
+              <source media="(max-width: 600px)" src="/assets/img/12.png" />
+              <!--Tablet and above Image-->
+              <source media="(min-width: 601px)" src="/assets/img/12.png" />
+              <img
+                loading="lazy"
+                decoding="async"
+                src="/assets/img/12.png"
+                alt="room"
+                width="630"
+                height="354"
+              />
+            </picture>
+            <div class="cs-content">
+              <span class="cs-tag">Best Range Hardware</span>
+              <h2 class="cs-h2">Buy With One Call</h2>
+              <a href="" class="cs-button-solid">Shop Now</a>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </section>
+    <!-- ================================================ -->
+
+    <section id="pricing-1387">
+      <div class="cs-container">
+        <div class="cs-content">
+          <div class="text-data">
+            <h1>Our Pricing</h1>
+            <div class="bar"></div>
+          </div>
+
+          <h2 class="cs-title">
+            Flexible Pricing Plans for Your Tailored Needs
+          </h2>
+          <p class="cs-text">
+            In the new era of technology we look in the future with certainty
+            and for any post types, or just they are so much great of all to a
+            program.
+          </p>
+        </div>
+        <ul class="cs-card-group cs-option1">
+          <li class="cs-item cs-popular">
+            <div class="cs-flex">
+              <span class="cs-package">Standard Plan</span>
+              <span class="cs-price">
+                $99
+                <span class="cs-duration">/Month</span>
+              </span>
+              <div class="cs-tag">
+                <img
+                  class="cs-icon"
+                  aria-hidden="true"
+                  src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Icons/fire.svg"
+                  decoding="async"
+                  alt="fire"
+                  width="16"
+                  height="16"
+                  loading="true"
+                />
+                Hot Deal
+              </div>
+            </div>
+            <div class="cs-info">
+              <ul class="cs-ul">
+                <li class="cs-li">High-Speed Download up to 100Mbps</li>
+                <li class="cs-li">1080p HD video streaming</li>
+                <li class="cs-li">Good gaming latency</li>
+                <li class="cs-li">No Contract, No Credit Check</li>
+                <li class="cs-li">Unlimited & Unthrottled</li>
+              </ul>
+              <a href="" class="cs-button-transparent">Get Now</a>
+            </div>
+          </li>
+          <li class="cs-item">
+            <div class="cs-flex">
+              <span class="cs-package">Turbo Plan</span>
+              <span class="cs-price">
+                $299
+                <span class="cs-duration">/Month</span>
+              </span>
+              <div class="cs-tag">
+                <img
+                  class="cs-icon"
+                  aria-hidden="true"
+                  src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Icons/fire.svg"
+                  decoding="async"
+                  alt="fire"
+                  width="16"
+                  height="16"
+                  loading="true"
+                />
+                Hot Deal
+              </div>
+            </div>
+            <div class="cs-info">
+              <ul class="cs-ul">
+                <li class="cs-li">High-Speed Download up to <b>200Mbps</b></li>
+                <li class="cs-li"><b>4K</b> video streaming</li>
+                <li class="cs-li">Good gaming latency</li>
+                <li class="cs-li">No Contract, No Credit Check</li>
+                <li class="cs-li">Unlimited & Unthrottled</li>
+              </ul>
+              <a href="" class="cs-button-transparent">Read More</a>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </section>
+    <!-- steps -->
+    <!-- ============================================ -->
+    <!--                   Steps                      -->
+    <!-- ============================================ -->
+
+    <section id="steps-284">
+      <div class="cs-container">
+        <!-- Left Section -->
+        <div class="cs-content">
+          <span class="cs-topper">Steps</span>
+          <h2 class="cs-title">Our Process from Start to Finish</h2>
+          <p class="cs-text">
+            From your initial inquiry to final setup, we ensure a seamless
+            experience every step of the way. Our process is designed to be
+            simple, efficient, and customer-focused, guaranteeing satisfaction
+            from start to finish.
+          </p>
+          <a href="" class="cs-button-solid">Read More</a>
+        </div>
+        <!-- Right Section -->
+        <ul class="cs-right-section">
+          <li class="cs-item">
+            <span class="cs-number">01</span>
+            <p class="cs-item-text">
+              <strong>Plans </strong>Choose Your Unlimited Internet Plan
+            </p>
+          </li>
+          <li class="cs-item">
+            <span class="cs-number">02</span>
+            <p class="cs-item-text">
+              <strong>Purpose </strong>How Do You Plan to Use Your Internet?
+            </p>
+          </li>
+          <li class="cs-item">
+            <span class="cs-number">03</span>
+            <p class="cs-item-text">
+              <strong>Hardware </strong>Discover the perfect solution for fast,
+              reliable internet at an affordable price!
+            </p>
+          </li>
+          <li class="cs-item">
+            <span class="cs-number">04</span>
+            <p class="cs-item-text">
+              <strong>Reach us</strong> Have questions? Reach out to us today
+            </p>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- =================================== -->
+
+    <!-- ============================================ -->
+    <!--                  Services                    -->
+    <!-- ============================================ -->
+
+    <section id="services-690">
+      <div class="cs-container">
+        <div class="cs-content">
+          <div class="cs-flex-group">
+            <span class="cs-topper">Our Services</span>
+            <h2 class="cs-title">
+              Shop with confidence
+              <span class="cs-color">Enhance Your work </span>
+            </h2>
+          </div>
+          <p class="cs-text">
+            With our flexible plans, there are no contracts, giving you the
+            freedom to choose what works best for your business. Enjoy peace of
+            mind with 24/7 customer support, ensuring you're never left in the
+            dark. Plus, our 14-day money-back guarantee means you can shop
+            confidently, knowing that if our products or plans don’t meet your
+            expectations, you can get a full refund
+          </p>
+        </div>
+        <ul class="cs-card-group">
+          <li class="cs-item">
+            <a href="" class="cs-link">
+              <picture class="cs-picture">
+                <img
+                  class="cs-icon"
+                  src="/assets/img/support-svgrepo-com.svg"
+                  loading="lazy"
+                  decoding="async"
+                  alt="icon"
+                  width="32"
+                  height="32"
+                  aria-hidden="true"
+                />
+              </picture>
+              <h3 class="cs-h3">No Contracts</h3>
+              <p class="cs-item-text">
+                Shop our products with confidence—no contracts, 24/7 customer
+                support, and a 14-day money-back guarantee. We ensure the best
+                for your business, or your money back!
+              </p>
+            </a>
+          </li>
+          <li class="cs-item">
+            <a href="" class="cs-link">
+              <picture class="cs-picture">
+                <img
+                  class="cs-icon"
+                  src="/assets/img/handshake-svgrepo-com.svg"
+                  loading="lazy"
+                  decoding="async"
+                  alt="icon"
+                  width="32"
+                  height="32"
+                  aria-hidden="true"
+                />
+              </picture>
+              <h3 class="cs-h3">24/7 Support</h3>
+              <p class="cs-item-text">
+                Our plans come with no contracts, giving you the flexibility to
+                change as your business needs evolve. Plus, enjoy 24/7 support
+                and a 14-day money-back guarantee for peace of mind
+              </p>
+            </a>
+          </li>
+          <li class="cs-item">
+            <a href="" class="cs-link">
+              <picture class="cs-picture">
+                <img class="cs-icon"
+                src="/assets/img/delivery-money-return-refund-svgrepo-com.svg""
+                loading="lazy" decoding="async" alt="icon" width="32"
+                height="32" aria-hidden="true" />
+              </picture>
+              <h3 class="cs-h3">14-Day Money Back Guarantee</h3>
+              <p class="cs-item-text">
+                OrdertvInternet for 14 days from the day you receive your
+                device. If it doesn’t meet your needs, return it for a full
+                refund—no questions asked!
+              </p>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!--                  Services                    -->
+    <!-- ============================================ -->
+
+    <section id="services-448">
+      <div class="cs-container">
+        <div class="cs-content">
+          <span class="cs-topper">Check out Our products</span>
+          <h2 class="cs-title">Explore Our Range of Products</h2>
+          <p class="cs-text">
+            Discover high-quality, reliable solutions designed to meet your
+            business needs—available now with flexible plans and full support.
+          </p>
+        </div>
+        <ul class="cs-card-group">
+          <li class="cs-item">
+            <div class="cs-flex">
+              <picture class="cs-wrapper">
+                <img
+                  class="cs-icon"
+                  aria-hidden="true"
+                  loading="lazy"
+                  decoding="async"
+                  src="/assets/img/router-svgrepo-com 2.svg"
+                  alt="icon"
+                  width="70"
+                  height="70"
+                />
+              </picture>
+              <h3 class="cs-h3">IQMC-520</h3>
+              <p class="cs-item-text">
+                Your IQMC router provides fast dual-band Wi-Fi for all your
+                devices
+              </p>
+              <a href="" class="cs-link">Read More</a>
+            </div>
+            <picture class="cs-picture">
+              <source
+                media="(max-width: 600px)"
+                src="/assets/img/IQMC412_Front+(1).jpg"
+              />
+              <source
+                media="(min-width: 601px)"
+                src="/assets/img/IQMC412_Front+(1).jpg"
+              />
+              <img
+                aria-hidden="true"
+                loading="lazy"
+                decoding="async"
+                src="/assets/img/IQMC412_Front+(1).jpg"
+                alt="leaf"
+                width="345"
+                height="428"
+              />
+            </picture>
+          </li>
+          <li class="cs-item">
+            <div class="cs-flex">
+              <picture class="cs-wrapper">
+                <img
+                  class="cs-icon"
+                  aria-hidden="true"
+                  loading="lazy"
+                  decoding="async"
+                  src="/assets/img/router-6-svgrepo-com.svg"
+                  alt="icon"
+                  width="70"
+                  height="70"
+                />
+              </picture>
+              <h3 class="cs-h3">IQMC-412</h3>
+              <p class="cs-item-text">
+                Your IQMC router provides fast dual-band Wi-Fi for all your
+                devices
+              </p>
+              <a href="" class="cs-link">Read More</a>
+            </div>
+            <picture class="cs-picture">
+              <source
+                media="(max-width: 600px)"
+                src="/assets/img/product 1.jpeg"
+              />
+              <source
+                media="(min-width: 601px)"
+                src="/assets/img/product 1.jpeg"
+              />
+              <img
+                aria-hidden="true"
+                loading="lazy"
+                decoding="async"
+                src="/assets/img/product 1.jpeg"
+                alt="grass"
+                width="345"
+                height="428"
+              />
+            </picture>
+          </li>
+          <li class="cs-item">
+            <div class="cs-flex">
+              <picture class="cs-wrapper">
+                <img
+                  class="cs-icon"
+                  aria-hidden="true"
+                  loading="lazy"
+                  decoding="async"
+                  src="/assets/img/router-wifi-svgrepo-com.svg"
+                  alt="icon"
+                  width="70"
+                  height="70"
+                />
+              </picture>
+              <h3 class="cs-h3">IQMC-520XDR</h3>
+              <p class="cs-item-text">
+                Outdoor-IQMC-5G-ROUTER Multi-Carrier 5G
+              </p>
+              <a href="" class="cs-link">Read More</a>
+            </div>
+            <picture class="cs-picture">
+              <source
+                media="(max-width: 600px)"
+                src="/assets/img/IQMC-520XDR.png"
+              />
+              <source
+                media="(min-width: 601px)"
+                src="/assets/img/IQMC-520XDR.png"
+              />
+              <img
+                aria-hidden="true"
+                loading="lazy"
+                decoding="async"
+                src="/assets/img/IQMC-520XDR.png"
+                alt="leaves"
+                width="345"
+                height="428"
+              />
+            </picture>
+          </li>
+        </ul>
+      </div>
+    </section>
+    <section id="faq-350">
+      <div class="cs-container">
+        <div class="cs-left">
+          <!--Big Image-->
+          <picture class="cs-picture cs-picture1" aria-hidden="true">
+            <source
+              media="(max-width: 600px)"
+              src="/assets/img/IQMC-520XDR.png"
+            />
+            <img
+              loading="lazy"
+              decoding="async"
+              src="/assets/img/IQMC-520XDR.png"
+              alt="cleaning supplies"
+              width="672"
+              height="672"
+            />
+          </picture>
+          <!--Medium Image-->
+          <picture class="cs-picture cs-picture2" aria-hidden="true">
+            <source media="(max-width: 600px)" src="" />
+            <source media="(min-width: 601px)" src="" />
+            <img
+              loading="lazy"
+              decoding="async"
+              src=""
+              alt="cleaning supplies"
+              width="300"
+              height="300"
+            />
+          </picture>
+          <!--Small Image-->
+          <picture class="cs-picture cs-picture3" aria-hidden="true">
+            <source media="(max-width: 600px)" src="" />
+            <source media="(min-width: 601px)" src="" />
+            <img
+              loading="lazy"
+              decoding="async"
+              src=""
+              alt="cleaner"
+              width="200"
+              height="200"
+            />
+          </picture>
+        </div>
+        <div class="cs-content">
+          <div class="text-data">
+            <h1>FAQ</h1>
+            <div class="bar"></div>
+          </div>
+
+          <ul class="cs-faq-group">
+            <!-- Active class added as default -->
+            <li class="cs-faq-item active">
+              <button class="cs-button">
+                <span class="cs-button-text">
+                  What internet speeds do you offer, and what plans are
+                  available?
+                </span>
+              </button>
+              <p class="cs-item-p">
+                We provide a variety of internet plans with speeds to meet
+                different needs, ranging from basic browsing packages to
+                ultra-fast plans for gaming and business use.
+              </p>
+            </li>
+            <li class="cs-faq-item">
+              <button class="cs-button">
+                <span class="cs-button-text">
+                  How can I sign up for an esports tournament or event?
+                </span>
+              </button>
+              <p class="cs-item-p">
+                you can register for esports tournaments directly on our
+                website. Visit the esports section, select your event, and
+                follow the simple registration steps.
+              </p>
+            </li>
+            <li class="cs-faq-item">
+              <button class="cs-button">
+                <span class="cs-button-text">
+                  What travel services do you offer?
+                </span>
+              </button>
+              <p class="cs-item-p">
+                We offer comprehensive travel packages, including flights,
+                accommodations, and custom itineraries for both leisure and
+                corporate travel. Check our travel section for current offers.
+              </p>
+            </li>
+            <li class="cs-faq-item">
+              <button class="cs-button">
+                <span class="cs-button-text">
+                  Can I bundle internet services with other corporate solutions?
+                </span>
+              </button>
+              <p class="cs-item-p">
+                Yes, we offer tailored corporate plans that bundle high-speed
+                internet with additional services like VoIP, networking
+                solutions, and IT support to enhance business efficiency.
+              </p>
+            </li>
+            <li class="cs-faq-item">
+              <button class="cs-button">
+                <span class="cs-button-text">
+                  How do I get support if I have issues with my internet
+                  service?
+                </span>
+              </button>
+              <p class="cs-item-p">
+                Our support team is available 24/7. You can contact us via our
+                support page, live chat, or call our helpline for immediate
+                assistance.
+              </p>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- footer -->
+
+    <footer id="cs-footer-1292">
+      <div class="cs-container">
+        <!-- Logo Group -->
+        <div class="cs-logo-group">
+          <a aria-label="go back to home" class="cs-logo" href="">
+            <img
+              class="cs-logo-img"
+              aria-hidden="true"
+              loading="lazy"
+              decoding="async"
+              src="/assets/img/logonew3.png"
+              alt="logo"
+              width="240"
+              height="32"
+            />
+          </a>
+          <p class="cs-text">Learn more about our mission, values, and team.</p>
+          <a href="mailto:info@mail.com" class="cs-link">
+            <img
+              class="cs-link-icon"
+              aria-hidden="true"
+              loading="lazy"
+              decoding="async"
+              src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Icons/construction-mail.svg"
+              alt="icon"
+              width="24"
+              height="24"
+            />
+            MAil
+          </a>
+        </div>
+        <!-- Links -->
+        <ul class="cs-nav">
+          <li class="cs-nav-li">
+            <span class="cs-header">Internet</span>
+          </li>
+          <li class="cs-nav-li">
+            <a class="cs-nav-link" href="">Wireless Internet</a>
+          </li>
+          <li class="cs-nav-li">
+            <a class="cs-nav-link" href="">Enterprise</a>
+          </li>
+          <li class="cs-nav-li">
+            <a class="cs-nav-link" href="">WiFi</a>
+          </li>
+          <li class="cs-nav-li">
+            <a class="cs-nav-link" href="">Availability</a>
+          </li>
+        </ul>
+        <ul class="cs-nav">
+          <li class="cs-nav-li">
+            <span class="cs-header">Products</span>
+          </li>
+          <li class="cs-nav-li">
+            <a class="cs-nav-link" href="/assets/pages/product1.html"
+              >IQMC-412
+            </a>
+          </li>
+          <li class="cs-nav-li">
+            <a class="cs-nav-link" href="/assets/pages/product2.html"
+              >IQMC-520
+            </a>
+          </li>
+          <li class="cs-nav-li">
+            <a class="cs-nav-link" href="/assets/pages/product3.html"
+              >IQMC-520XDR
+            </a>
+          </li>
+        </ul>
+        <ul class="cs-nav">
+          <li class="cs-nav-li">
+            <span class="cs-header">Contact</span>
+          </li>
+          <li class="cs-nav-li">
+            <a class="cs-nav-link" href="">Facebook</a>
+          </li>
+          <li class="cs-nav-li">
+            <a class="cs-nav-link" href="">Instagram</a>
+          </li>
+          <li class="cs-nav-li">
+            <a class="cs-nav-link" href="">LinkedIn</a>
+          </li>
+        </ul>
+        <ul class="cs-nav">
+          <li class="cs-nav-li">
+            <span class="cs-header">Help</span>
+          </li>
+          <li class="cs-nav-li">
+            <a class="cs-nav-link" href="">Customer Support</a>
+          </li>
+          <li class="cs-nav-li">
+            <a class="cs-nav-link" href="./support.html">Contact us</a>
+          </li>
+        </ul>
+      </div>
+      <div class="cs-bottom">
+        <span class="cs-copyright"
+          >Copyright© 2023.
+          <a class="cs-copyright-link" href="">OrderTvINternet</a>
+          All Right Reserved.
+        </span>
+        <a href="" class="cs-copyright-link">Terms of Service</a>
+        <a href="" class="cs-copyright-link">Privacy Policy</a>
+      </div>
+      <!--Floating Cirlces-->
+      <div class="cs-floater" aria-hidden="true"></div>
+    </footer>
+
+    <script src="/assets/js/main.js"></script>
+  </body>
+</html>
